@@ -1,10 +1,10 @@
 #ifndef SOLUTION_HPP
 #define SOLUTION_HPP
 
-#include <fstream>
+#include <vector>
 
-#include "student.hpp"
+#include "item.hpp"
 
-Student ReadStudentRecFromStream(std::istream& is);
+std::vector<Item> LoadShoppingItemsFromFile(const std::string& file_name);
 
 #endif
