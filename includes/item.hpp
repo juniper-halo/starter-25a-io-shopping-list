@@ -4,7 +4,7 @@
 #include <string>
 
 struct Item {
-  std::string itemName;
+  std::string item_name;
   int quantity;
   double price;
 };
