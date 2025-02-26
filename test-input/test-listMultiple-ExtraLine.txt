@@ -1,3 +1,0 @@
-Apples 10 5.99
-Bananas 5 1.99
-Oranges 3 2.99
