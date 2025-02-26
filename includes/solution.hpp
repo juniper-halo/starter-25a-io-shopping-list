@@ -5,6 +5,6 @@
 
 #include "item.hpp"
 
-std::vector<Item> LoadShoppingItemsFromFile(const std::string& file_name);
+std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename);
 
 #endif

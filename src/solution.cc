@@ -1,8 +1,11 @@
 #include "solution.hpp"
 
-#include <vector>
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
-std::vector<Item> LoadShoppingItemsFromFile(const std::string& file_name) {
+std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
   std::vector<Item> shopping_items;
 
   return shopping_items;
