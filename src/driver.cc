@@ -7,7 +7,7 @@
 
 int main() {
   try {
-    std::string test_input_file = "./tests/test-listOne.txt";
+    std::string test_input_file = "./test-input/test-listOne.txt";
     std::vector<Item> shopping_items =
         LoadShoppingItemsFromFile(test_input_file);
 
