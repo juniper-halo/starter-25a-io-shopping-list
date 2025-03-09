@@ -17,22 +17,25 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     std::string item_name;
     int quantity = 0;
     double price = 0.0;
-    //char throw_away = '\0';
+    char throw_away = '\0';
 
     ifs >> item_name;
     if (ifs.fail()) {
+      ifs >> throw_away;
       throw std::invalid_argument("invalid value received.");
     }
 
     ifs >> quantity;
     if (ifs.fail()) {
+      ifs >> throw_away;
       throw std::invalid_argument("invalid value received.");
     }
 
     ifs >> price;
-    /*if (ifs.fail()) {
+    if (ifs.fail()) {
+      ifs >> throw_away;
       throw std::invalid_argument("invalid value received.");
-    }*/
+    }
 
     Item to_append;
     to_append.item_name = item_name;
