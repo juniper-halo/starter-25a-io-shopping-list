@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <limits>
 
 std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
   std::ifstream ifs(filename);
@@ -17,24 +18,27 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     std::string item_name;
     int quantity = 0;
     double price = 0.0;
-    char throw_away = '\0';
+    bool flagged = true;
 
     ifs >> item_name;
     if (ifs.fail()) {
-      ifs >> throw_away;
-      throw std::invalid_argument("invalid value received.");
+      ifs.clear();
+      ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      flagged = false;
     }
 
     ifs >> quantity;
     if (ifs.fail()) {
-      ifs >> throw_away;
-      throw std::invalid_argument("invalid value received.");
+      ifs.clear();
+      ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      flagged = false;
     }
 
     ifs >> price;
     if (ifs.fail()) {
-      ifs >> throw_away;
-      throw std::invalid_argument("invalid value received.");
+      ifs.clear();
+      ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      flagged = false;
     }
 
     Item to_append;
@@ -42,12 +46,10 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     to_append.price = price;
     to_append.quantity = quantity;
 
-    shopping_items.push_back(to_append);
+    if (flagged) {
+      shopping_items.push_back(to_append);
+    }
 
-  }
-
-  if (shopping_items.empty()) {
-    throw std::invalid_argument("Empty file received.");
   }
 
   return shopping_items;
