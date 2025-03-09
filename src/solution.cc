@@ -17,7 +17,7 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     std::string item_name;
     int quantity = 0;
     double price = 0.0;
-    char throw_away = '\0';
+    //char throw_away = '\0';
 
     ifs >> item_name;
     if (ifs.fail()) {
@@ -29,7 +29,7 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
       throw std::invalid_argument("invalid value received.");
     }
 
-    ifs >> price >> throw_away;
+    ifs >> price;
     /*if (ifs.fail()) {
       throw std::invalid_argument("invalid value received.");
     }*/
