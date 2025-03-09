@@ -19,20 +19,20 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     double price = 0.0;
     char throw_away = '\0';
 
-    ifs >> throw_away >> item_name >> throw_away;
+    ifs >> item_name;
     if (ifs.fail()) {
       throw std::invalid_argument("invalid value received.");
     }
 
-    ifs >> quantity >> throw_away;
+    ifs >> quantity;
     if (ifs.fail()) {
       throw std::invalid_argument("invalid value received.");
     }
 
     ifs >> price >> throw_away;
-    if (ifs.fail()) {
+    /*if (ifs.fail()) {
       throw std::invalid_argument("invalid value received.");
-    }
+    }*/
 
     Item to_append;
     to_append.item_name = item_name;
