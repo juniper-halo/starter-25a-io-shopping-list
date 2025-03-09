@@ -18,35 +18,19 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     std::string item_name;
     int quantity = 0;
     double price = 0.0;
-    bool flagged = true;
 
-    ifs >> item_name;
+    ifs >> item_name >> quantity >> price;
+
     if (ifs.fail()) {
       ifs.clear();
       ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      flagged = false;
-    }
+      
+    } else {
+      Item to_append;
+      to_append.item_name = item_name;
+      to_append.price = price;
+      to_append.quantity = quantity;
 
-    ifs >> quantity;
-    if (ifs.fail()) {
-      ifs.clear();
-      ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      flagged = false;
-    }
-
-    ifs >> price;
-    if (ifs.fail()) {
-      ifs.clear();
-      ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      flagged = false;
-    }
-
-    Item to_append;
-    to_append.item_name = item_name;
-    to_append.price = price;
-    to_append.quantity = quantity;
-
-    if (flagged) {
       shopping_items.push_back(to_append);
     }
 

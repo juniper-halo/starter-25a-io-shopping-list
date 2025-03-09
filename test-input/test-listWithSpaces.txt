@@ -1,3 +1,10 @@
 Apples    10    5.99
    Bananas 5     1.99
 Oranges  3    2.99
+Honey 10
+Biscuits
+Lemon 3 2.99
+Cake 10 5.99 ExtraField
+Dunnp 5 1.99 AnotherField
+Meow 0 4.99
+Juno -1 2.59
