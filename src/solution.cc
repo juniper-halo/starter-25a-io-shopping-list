@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
   std::ifstream ifs(filename);
@@ -18,12 +19,12 @@ std::vector<Item> LoadShoppingItemsFromFile(const std::string& filename) {
     double price = 0.0;
     char throw_away = '\0';
 
-    ifs >> item_name;
+    ifs >> item_name >> throw_away;
     if (ifs.fail()) {
       throw std::invalid_argument("invalid value received.");
     }
 
-    ifs >> quantity;
+    ifs >> quantity >> throw_away;
     if (ifs.fail()) {
       throw std::invalid_argument("invalid value received.");
     }
